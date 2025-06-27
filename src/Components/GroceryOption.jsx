@@ -1,6 +1,10 @@
 import React from "react";
 import { GrocerGridCard } from "../Utils/Grocery";
+<<<<<<< HEAD
 import Grocerycard from "./GroceryCard.jsx";
+=======
+import Grocerycard from "./Grocerycard.jsx";
+>>>>>>> 03ccca4fa39b380713cc239f206206c46a55ff94
 
 export default function GroceryOption() {
   return (

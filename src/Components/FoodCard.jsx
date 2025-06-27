@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 
 export default function Grocerycard({ foodData }) {
@@ -15,3 +16,19 @@ export default function Grocerycard({ foodData }) {
   );
 }
 
+=======
+
+import React from "react";
+export default function Foodcard({foodData})
+{
+
+
+    return(
+        <>
+        <a href={foodData?.action?.link}>
+        <img className="w-40 h-50 object-cover" src={"https://media-assets.swiggy.com/swiggy/image/upload/"+foodData?.imageId}></img>
+        </a>
+        </>
+    )
+}
+>>>>>>> 03ccca4fa39b380713cc239f206206c46a55ff94

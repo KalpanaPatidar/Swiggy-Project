@@ -1,35 +1,19 @@
-<<<<<<< HEAD
- import React from "react";
-export default function Dinecard({ RestData }) {
-  return (
-    <div className="max-w-sm">
-      <div>
-        <img
-          className="w-36 h-36 object-cover rounded-full shadow-md"
-          src={`https://media-assets.swiggy.com/swiggy/image/upload/${RestData?.mediaFiles?.url}`}
-          alt={RestData?.info?.name}
-        />
-        <p>{RestData?.info?.name}</p>
-        <p>Rating: {RestData?.info?.rating?.value}</p>
-        <p>Reviews: {RestData?.info?.rating?.count}</p>
-        <p>{RestData?.info?.rating?.countDescription}</p>
-=======
 import React from "react";
 
 // Card Component
 export default function DineCard({ RestData }) {
-  // Fallback values
+  // Extract data with fallback
   const name = RestData?.info?.name || "Unknown Restaurant";
-  const costText = RestData?.info?.costText || "2300";
-  const distance = RestData?.info?.distance || "30km";
-  const location = RestData?.info?.location || "Indore";
+  const costText = RestData?.info?.costText || "₹1200 for two";
+  const distance = RestData?.info?.distance || "0";
+  const location = RestData?.info?.location || "Unknown";
   const imageUrl = RestData?.info?.mediaFiles?.[0]?.url
     ? `https://media-assets.swiggy.com/swiggy/image/upload/${RestData.info.mediaFiles[0].url}`
-    : "https://via.placeholder.com/160";
+    : "https://via.placeholder.com/160"; // fallback image
   const link = RestData?.cta?.link || "#";
 
   return (
-    <div className="max-w-sm w-80 flex-none bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200 m-4">
+    <div className="max-w-sm w-80 flex-none bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
       {/* Image */}
       <a target="_blank" rel="noreferrer" href={link}>
         <div className="w-full h-48">
@@ -41,57 +25,42 @@ export default function DineCard({ RestData }) {
         </div>
       </a>
 
-      {/* Info Section */}
+      {/* Info */}
       <div className="p-4 space-y-2">
-        {/* Name and Location */}
         <div className="flex flex-col">
           <h3 className="text-base font-semibold text-gray-900">{name}</h3>
           <p className="text-sm text-gray-600">📍 {location}</p>
         </div>
 
-        {/* Price and Distance */}
-        <div className="flex justify-between items-center text-sm text-gray-600">
-          <p>₹{costText}</p>
+        <div className="flex justify-between text-sm text-gray-600">
+          <p>{costText}</p>
           <p>{distance} km</p>
         </div>
 
-        {/* Table Booking */}
         <div>
-          <span
-            className="inline-flex items-center text-sm px-2 py-1 rounded-md"
-            style={{ backgroundColor: "#f2f2f2", color: "#6e6e6e" }}
-          >
+          <span className="inline-flex items-center text-sm px-2 py-1 rounded-md bg-gray-100 text-gray-700">
             📅 Table booking
           </span>
         </div>
 
-        {/* Offers */}
-        <div className="space-y-2">
+        {/* Offer Buttons */}
+        <div className="flex flex-col space-y-2">
           <a href={link} target="_blank" rel="noreferrer">
-            <div
-              className="text-sm font-medium px-3 py-1 rounded-md w-full text-white cursor-pointer"
-              style={{ backgroundColor: "#009e60" }}
-            >
+            <div className="text-sm font-medium px-3 py-1 rounded-md w-full text-white cursor-pointer bg-green-700">
               Flat 15% off on pre-booking + 1 more
             </div>
           </a>
 
           <a href={link} target="_blank" rel="noreferrer">
-            <div
-              className="text-sm px-3 py-1 mt-2 rounded-md w-full cursor-pointer"
-              style={{ backgroundColor: "#dff5e4", color: "#006644" }}
-            >
+            <div className="text-sm px-3 py-1 rounded-md w-full cursor-pointer bg-green-100 text-green-700">
               Up to 10% off with bank offers
             </div>
           </a>
         </div>
->>>>>>> 03ccca4fa39b380713cc239f206206c46a55ff94
       </div>
     </div>
   );
 }
-<<<<<<< HEAD
-=======
 
 // Slider Component
 function DineoutCards({ restaurants }) {
@@ -106,6 +75,7 @@ function DineoutCards({ restaurants }) {
           <p className="text-red-500">No restaurants available.</p>
         )}
       </div>
+      
     </div>
   );
 }
@@ -115,7 +85,7 @@ const restaurantData = [
   {
     info: {
       name: "Chopstick City",
-      costText: "2200 for two",
+      costText: "₹2200 for two",
       distance: "8.1",
       location: "Palasia",
       mediaFiles: [{ url: "fl_something1" }],
@@ -125,7 +95,7 @@ const restaurantData = [
   {
     info: {
       name: "Cravings",
-      costText: "2000 for two",
+      costText: "₹2000 for two",
       distance: "6.5",
       location: "Vijay Nagar",
       mediaFiles: [{ url: "fl_something2" }],
@@ -135,7 +105,7 @@ const restaurantData = [
   {
     info: {
       name: "Mamamoto",
-      costText: "1000 for two",
+      costText: "₹1000 for two",
       distance: "14.7",
       location: "Rajwada",
       mediaFiles: [{ url: "fl_something3" }],
@@ -148,4 +118,3 @@ const restaurantData = [
 export function App() {
   return <DineoutCards restaurants={restaurantData} />;
 }
->>>>>>> 03ccca4fa39b380713cc239f206206c46a55ff94
